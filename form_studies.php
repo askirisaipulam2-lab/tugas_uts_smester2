@@ -1,101 +1,94 @@
 <?php
-require_once 'koneksi.php';
 require_once 'models/Studies.php';
 require_once 'models/Level.php';
 
-
-// ambil data level
 $obj_level = new Level();
 $rs = $obj_level->index();
 
-// ambil id
 $id = $_GET['id'] ?? null;
-$obj_studies = new Studies();
+$obj = new Studies();
 
-if (!empty($id)) {
-    $row = $obj_studies->getStudies($id);
-} else {
-    $row = [];
-}
+$row = $id ? $obj->getStudies($id) : [];
 
-// helper
-function val($row, $key)
-{
-    return isset($row[$key]) ? $row[$key] : '';
+function val($row, $key){
+    return $row[$key] ?? '';
 }
 ?>
 
-<div class="container px-5 my-5">
-    <h3>Form Studies</h3>
+<div class="container mt-3">
+    <div class="card p-4 shadow-sm">
 
-    <form method="POST" action="controller/proses_studies.php">
+        <h3 class="mb-4">Form Studies</h3>
 
-        <!-- Nama Sekolah -->
-        <div class="form-floating mb-3">
-            <input class="form-control" name="nama"
-                value="<?= val($row, 'nama') ?>"
-                type="text" placeholder="Nama Sekolah" required>
-            <label>Nama Sekolah</label>
-        </div>
+        <form method="POST" action="controller/proses_studies.php">
 
-        <!-- Level -->
-        <div class="form-floating mb-3">
-            <select class="form-select" name="idlevel" required>
-                <option value="">-- Pilih Level --</option>
-                <?php foreach ($rs as $level) {
-                    $sel = (val($row, 'idlevel') == $level['id']) ? "selected" : "";
-                ?>
-                    <option value="<?= $level['id'] ?>" <?= $sel ?>>
-                        <?= $level['nama'] ?>
-                    </option>
+            <input type="hidden" name="id" value="<?= $id ?>">
+
+            <!-- 1. NAMA -->
+            <div class="form-floating mb-3">
+                <input type="text" name="nama" class="form-control"
+                       value="<?= val($row,'nama') ?>"
+                       placeholder="Nama Sekolah" required>
+                <label>Nama Sekolah</label>
+            </div>
+
+            <!-- 2. LEVEL -->
+            <div class="form-floating mb-3">
+                <select name="idlevel" class="form-select" required>
+                    <option value="">-- Pilih Level --</option>
+                    <?php foreach($rs as $lvl):
+                        $selected = (val($row,'idlevel') == $lvl['id']) ? 'selected' : '';
+                    ?>
+                        <option value="<?= $lvl['id'] ?>" <?= $selected ?>>
+                            <?= $lvl['nama'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <label>Level Pendidikan</label>
+            </div>
+
+            <!-- 3. KETERANGAN -->
+            <div class="form-floating mb-3">
+                <input type="text" name="keterangan" class="form-control"
+                       value="<?= val($row,'keterangan') ?>"
+                       placeholder="Keterangan">
+                <label>Keterangan</label>
+            </div>
+
+            <!-- 4. TAHUN -->
+            <div class="form-floating mb-3">
+                <input type="number" name="tahun_lulus" class="form-control"
+                       value="<?= val($row,'tahun_lulus') ?>"
+                       placeholder="Tahun Lulus" required>
+                <label>Tahun Lulus</label>
+            </div>
+
+            <!-- 5. FOTO -->
+            <div class="form-floating mb-3">
+                <input type="text" name="foto_sekolah" class="form-control"
+                       value="<?= val($row,'foto_sekolah') ?>"
+                       placeholder="Foto Sekolah">
+                <label>Foto Sekolah</label>
+            </div>
+
+            <!-- BUTTON -->
+            <div class="text-center mt-3">
+                <?php if(empty($id)){ ?>
+                    <button class="btn btn-primary" name="proses" value="simpan">
+                        Simpan
+                    </button>
+                <?php } else { ?>
+                    <button class="btn btn-success" name="proses" value="ubah">
+                        Ubah
+                    </button>
                 <?php } ?>
-            </select>
-            <label>Level Pendidikan</label>
-        </div>
 
-        <!-- Keterangan -->
-        <div class="form-floating mb-3">
-            <input class="form-control" name="keterangan"
-                value="<?= val($row, 'keterangan') ?>"
-                type="text" placeholder="Keterangan">
-            <label>Keterangan</label>
-        </div>
+                <a href="index.php?hal=mystudies" class="btn btn-secondary">
+                    Kembali
+                </a>
+            </div>
 
-        <!-- Tahun Lulus -->
-        <div class="form-floating mb-3">
-            <input class="form-control" name="tahun_lulus"
-                value="<?= val($row, 'tahun_lulus') ?>"
-                type="number" placeholder="Tahun Lulus" required>
-            <label>Tahun Lulus</label>
-        </div>
+        </form>
 
-        <!-- Foto -->
-        <div class="form-floating mb-3">
-            <input class="form-control" name="foto_sekolah"
-                value="<?= val($row, 'foto_sekolah') ?>"
-                type="text" placeholder="Foto Sekolah">
-            <label>Foto Sekolah</label>
-        </div>
-
-        <!-- BUTTON -->
-        <div class="text-center">
-
-            <?php if (empty($id)) { ?>
-                <button class="btn btn-primary" name="proses" value="simpan">
-                    Simpan
-                </button>
-            <?php } else { ?>
-                <button class="btn btn-success" name="proses" value="ubah"><link href="css/bootstrap.min.css" rel="stylesheet">
-                    Ubah
-                </button>
-                <input type="hidden" name="id" value="<?= $id ?>">
-            <?php } ?>
-
-            <a href="index.php?hal=mystudies" class="btn btn-info">
-                Kembali
-            </a>
-
-        </div>
-
-    </form>
+    </div>
 </div>

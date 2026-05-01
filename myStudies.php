@@ -8,7 +8,7 @@ $data_studies = $obj->index();
 <div class="container mt-3">
     <h3>Data Studies</h3><hr>
 
-    <a href="form_studies.php" class="btn btn-primary mb-3">Tambah</a>
+    <a href="index.php?hal=form_studies" class="btn btn-primary mb-3">Tambah</a>
 
     <table class="table table-striped table-hover">
         <thead>
@@ -36,13 +36,13 @@ $data_studies = $obj->index();
 
                 <td>
                     <!-- 👁 lihat -->
-                    <a href="detail_studies.php?id=<?= $row['id'] ?>" 
+                    <a href="index.php?hal=detail_studies&id=<?= $row['id'] ?>" 
                        class="btn btn-info btn-sm">
                        <i class="bi bi-eye"></i>
                     </a>
 
                     <!-- ✏️ edit -->
-                    <a href="form_studies.php?id=<?= $row['id'] ?>" 
+                    <a href="index.php?hal=form_studies&id=<?= $row['id'] ?>" 
                        class="btn btn-warning btn-sm">
                        <i class="bi bi-pencil"></i>
                     </a>

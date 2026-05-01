@@ -5,8 +5,9 @@ class Users {
 
     // member2: konstruktor
     public function __construct() {
-        global $dbh;
-        $this->koneksi = $dbh;
+    require_once __DIR__ . '/../koneksi.php';
+    global $dbh;
+    $this->koneksi = $dbh;
     }
 
     // 🔐 fungsi login

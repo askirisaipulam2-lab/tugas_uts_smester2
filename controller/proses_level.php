@@ -1,38 +1,26 @@
 <?php
-include '../config/koneksi.php';
+require_once '../koneksi.php';
+require_once '../models/Level.php';
 
-if (isset($_POST['update'])) {
+$obj = new Level();
 
-    $id = $_POST['id'];
-    $nama = $_POST['nama_sekolah'];
-    $level = $_POST['level'];
-    $ket = $_POST['keterangan'];
-    $tahun = $_POST['tahun_lulus'];
+// HAPUS
+if(isset($_GET['hapus'])){
+    $obj->hapus($_GET['hapus']);
+    header("Location: ../index.php?hal=level");
+    exit;
+}
 
-    // upload foto (opsional)
-    $foto = $_FILES['foto']['name'];
-    $tmp = $_FILES['foto']['tmp_name'];
-
-    if ($foto != "") {
-        move_uploaded_file($tmp, "../upload/" . $foto);
-
-        $query = "UPDATE studies SET 
-                    nama_sekolah='$nama',
-                    level='$level',
-                    keterangan='$ket',
-                    tahun_lulus='$tahun',
-                    foto='$foto'
-                  WHERE id='$id'";
+// SIMPAN / UPDATE
+if(isset($_POST['proses'])){
+    
+    if($_POST['proses'] == 'simpan'){
+        $obj->simpan([$_POST['nama']]);
     } else {
-        $query = "UPDATE studies SET 
-                    nama_sekolah='$nama',
-                    level='$level',
-                    keterangan='$ket',
-                    tahun_lulus='$tahun'
-                  WHERE id='$id'";
+        $obj->ubah([$_POST['nama'], $_POST['id']]);
     }
 
-    mysqli_query($koneksi, $query);
-
-    header("Location: ../studies.php");
+    header("Location: ../index.php?hal=level");
+    exit;
 }
+?>

@@ -44,10 +44,9 @@ $data_studies = $obj->index();
                        👁
                     </a>
 
-                    <!-- ✏️ EDIT -->
-                    <a href="index.php?hal=form_studies&id=<?= $row['id'] ?>"> 
-                       class="btn btn-warning btn-sm">
-                       ✏️
+                    <a href="index.php?hal=form_studies&id=<?= $row['id'] ?>" 
+                        class="btn btn-warning btn-sm">
+                        ✏️
                     </a>
 
                     <!-- ❌ HAPUS -->
