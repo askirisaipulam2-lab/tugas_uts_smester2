@@ -19,24 +19,31 @@ class Level {
     $ps = $this->koneksi->prepare($sql);
     $ps->execute([$id]);
     return $ps->fetch(PDO::FETCH_ASSOC);
-}
+    }
 
-public function simpan($data){
+    public function simpan($data){
     $sql = "INSERT INTO level (nama) VALUES (?)";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute($data);
-}
+    }
 
-public function ubah($data){
+    public function ubah($data){
     $sql = "UPDATE level SET nama=? WHERE id=?";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute($data);
-}
+    }
 
-public function hapus($id){
+    public function hapus($id){
     $sql = "DELETE FROM level WHERE id=?";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute([$id]);
-}
+    }
+
+    public function cekDipakai($id){
+    $sql = "SELECT COUNT(*) FROM studies WHERE idlevel=?";
+    $ps = $this->koneksi->prepare($sql);
+    $ps->execute([$id]);
+    return $ps->fetchColumn();
+    }
 }
 ?>

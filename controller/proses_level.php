@@ -4,9 +4,16 @@ require_once '../models/Level.php';
 
 $obj = new Level();
 
-// HAPUS
 if(isset($_GET['hapus'])){
-    $obj->hapus($_GET['hapus']);
+    $id = $_GET['hapus'];
+
+    // 🔥 CEK DULU
+    if($obj->cekDipakai($id) > 0){
+        header("Location: ../index.php?hal=level&error=relasi");
+        exit;
+    }
+
+    $obj->hapus($id);
     header("Location: ../index.php?hal=level");
     exit;
 }
