@@ -58,7 +58,7 @@
           <!-- SUDAH LOGIN -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-warning" href="#" data-bs-toggle="dropdown">
-              <button class="btn btn-outline-light">👤<?= $_SESSION['user']; ?></button>
+              <button class="btn btn-outline-light"><?= $_SESSION['user']; ?></button>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end">

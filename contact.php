@@ -15,7 +15,7 @@
   </div>
 
   <div class="card-footer">
-    <small class="text-body-secondary">Last updated 3 mins ago</small>
+    <small class="text-body-secondary">Langsung saja hubungi saya</small>
   </div>
 </div>
 
