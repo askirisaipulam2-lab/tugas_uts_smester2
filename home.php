@@ -1,4 +1,5 @@
-<div class="card mb-3" style="max-width: 1140px;">
+<div class="card mb-3" style="max-width: 1140px;"
+onclick="window.open('https://portofolio-blush-rho.vercel.app/', '_blank')">
   <div class="row g-0">
     <div class="col-md-2">
       <img src="images/1.jpeg" class="img-fluid rounded-start" alt="gambar">

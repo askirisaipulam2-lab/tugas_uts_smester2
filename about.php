@@ -32,9 +32,9 @@
       </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Pengalaman organisasiku dimulai saat menjadi Ketua OSIS di SMPTQ RYDHA (2019–2020),
-        di mana aku belajar memimpin dan bertanggung jawab. Kemudian aku melanjutkan sebagai Sekretaris di Ponpes DaQu Takhassus Depok (2021)
-        dan Bendahara (2022–2024), yang mengasah kemampuan administrasi dan pengelolaan keuangan. Aku juga aktif sebagai panitia kegiatan Ramadhan,
+      <div class="accordion-body">Pengalaman organisasiku dimulai saat menjadi <code>Ketua OSIS di SMPTQ RYDHA (2019–2020),</code>
+        di mana aku belajar memimpin dan bertanggung jawab. Kemudian aku melanjutkan sebagai <code>Sekretaris di Ponpes DaQu Takhassus Depok (2021)
+        dan Bendahara (2022–2024),</code> yang mengasah kemampuan administrasi dan pengelolaan keuangan. Aku juga aktif sebagai panitia kegiatan Ramadhan,
         serta dipercaya menjadi pengurus dan guru tahfidz, hingga menjadi MC dalam beberapa acara. Dari semua pengalaman itu, aku belajar tentang kepemimpinan,
         kerja sama, dan tanggung jawab dalam berorganisasi.</div>
     </div>

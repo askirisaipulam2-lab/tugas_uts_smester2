@@ -6,9 +6,8 @@ $data_level = $obj->index();
 ?>
 
 <div class="container mt-3">
-    <h3>Data Level</h3>
+    <h3>Data Level</h3><hr>
 
-    <!-- tombol tambah -->
     <a href="index.php?hal=form_level" class="btn btn-primary">Tambah</a>
 
     <table class="table table-striped table-hover">

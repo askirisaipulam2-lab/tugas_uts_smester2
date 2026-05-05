@@ -45,7 +45,7 @@
   <div class="card-body">
     <h5 class="card-title">My Tiktok</h5>
     <p class="card-text">
-      Ikuti (@alamsaipul) aktivitas dan konten saya di TikTok untuk melihat keseharian, hobi, dan berbagai hal menarik lainnya. Jangan lupa follow agar tidak ketinggalan update terbaru dari saya!
+      Ikuti Tiktok @alamsaipul aktivitas dan konten saya di TikTok untuk melihat keseharian, hobi, dan berbagai hal menarik lainnya. Jangan lupa follow agar tidak ketinggalan update terbaru dari saya!
     </p>
   </div>
 

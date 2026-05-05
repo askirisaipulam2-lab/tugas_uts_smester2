@@ -50,29 +50,32 @@ include_once 'models/Users.php';
       if (isset($_GET['hal'])) {
         $req = $_GET['hal'];
 
-        // 🔥 cegah include logout (biar ga error header)
+        // 🔥 redirect logout
         if ($req == 'logout') {
           header("Location: logout.php");
           exit;
         }
 
-        // cek file ada atau tidak
         if (file_exists($req . '.php')) {
           include_once $req . '.php';
         } else {
           echo "<h5>Halaman tidak ditemukan</h5>";
-        } 
+        }
 
       } else {
-        include_once 'main.php';
+
+        if (isset($_SESSION['user'])) {
+            include_once 'main.php';   // kalau login
+        } else {
+            include_once 'home.php';   // kalau belum login / logout
+        }
+
       }
       ?>
     </div>
   </div>
 
   <br>
-
-  <!-- FOOTER -->
   <div class="row">
     <div class="col-md-12">
       <?php include_once 'footer.php'; ?>
