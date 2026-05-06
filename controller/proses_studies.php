@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['user'])){
+    header("Location: ../index.php?hal=login");
+    exit;
+}
+?>
+
+<?php
 require_once '../koneksi.php';
 require_once '../models/Studies.php';
 

@@ -1,4 +1,11 @@
 <?php
+if(!isset($_SESSION['user'])){
+    header("Location: index.php?hal=login");
+    exit;
+}
+?>
+
+<?php
 require_once 'models/Studies.php';
 require_once 'models/Level.php';
 

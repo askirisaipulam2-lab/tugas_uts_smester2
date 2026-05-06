@@ -17,20 +17,26 @@
       <ul class="navbar-nav me-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="index.php?hal=home">Home</a>
+          <a class="nav-link" href="index.php?hal=home">
+            <i class="bi bi-house-fill"></i> Home
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="index.php?hal=about">About</a>
+          <a class="nav-link" href="index.php?hal=about">
+             <i class="bi bi-person-fill"></i> About Me
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="index.php?hal=contact">Contact</a>
+          <a class="nav-link" href="index.php?hal=contact">
+             <i class="bi bi-telephone-fill"></i> Contact
+          </a>
         </li>
 
         <!-- DROPDOWN STUDIES -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-mortarboard-fill"></i>
             My Studies
           </a>
           <ul class="dropdown-menu">
